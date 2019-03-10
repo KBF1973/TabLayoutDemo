@@ -17,29 +17,19 @@ public class TabLayoutDemoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab_layout_demo);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         configureTabLayout();
     }
 
-    private void configureTabLayout() {
-        TabLayout tabLayout= (TabLayout) findViewById(R.id.tabLayout);
-    tabLayout.addTab(tabLayout.newTab().setText("Tab 1 Item"));
-    tabLayout.addTab(tabLayout.newTab().setText("Tab 2 Item"));
-    tabLayout.addTab(tabLayout.newTab().setText("Tab 3 Item"));
-    tabLayout.addTab(tabLayout.newTab().setText("Tab 4 Item"));
+    private void configureTabLayout(){
+    TabLayout tabLayout= findViewById(R.id.tabLayout);
+    tabLayout.addTab(tabLayout.newTab().setText("Tip Calculator"));
+    tabLayout.addTab(tabLayout.newTab().setText("Temp Calculator"));
+    tabLayout.addTab(tabLayout.newTab().setText("Distance Calculator"));
 
-        final ViewPager viewPager= (ViewPager) findViewById(R.id.pager);
+        final ViewPager viewPager= findViewById(R.id.pager);
         final PagerAdapter adapter = new TabPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
 
